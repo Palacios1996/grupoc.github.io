@@ -5,7 +5,7 @@
 - **Carlos**
 - **Joseph**
 - **Omar**
-- **Feliciano**
+- **Feliciano** [Palacios1996](https://github.com/Palacios1996)
 - **Michel**
 
 ## Objetivo del Portafolio
