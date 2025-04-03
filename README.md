@@ -1,7 +1,7 @@
 # Portafolio del Grupo C: Desarrollo Ágil y Uso de Inteligencia Artificial Generativa
 
 ## Integrantes del Grupo
-- **Fernando**
+- **Fernando** [falzamora](https://falzamora.github.io/feralzamora/)
 - **Carlos**
 - **Joseph**
 - **Omar**
