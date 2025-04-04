@@ -3,7 +3,7 @@
 ## Integrantes del Grupo
 - **Fernando** [falzamora](https://falzamora.github.io/feralzamora/)
 - **Carlos**
-- **Joseph**
+- **Joseph** [Josephcf24](https://josephcf24.github.io/Josephcf24/)
 - **Omar**
 - **Feliciano** [Palacios1996](https://palacios1996.github.io/) 
 - **Michel**
