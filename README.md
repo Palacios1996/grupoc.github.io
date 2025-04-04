@@ -16,7 +16,7 @@ El objetivo de este portafolio es **demostrar las habilidades adquiridas** en el
 1. **Introducción**
    - Breve presentación del grupo y del propósito del portafolio.
      
-Bienvenido/a a mi portafolio, un espacio donde convergen el **desarrollo ágil de software** y la **inteligencia artificial generativa** para crear soluciones innovadoras y eficientes.  
+Bienvenido/a a nuestro portafolio, un espacio donde convergen el **desarrollo ágil de software** y la **inteligencia artificial generativa** para crear soluciones innovadoras y eficientes.  
 
 A lo largo de mi formación y experiencia, he adoptado metodologías ágiles como **Scrum y Kanban**, priorizando la iteración rápida, la adaptabilidad y la entrega de valor continuo. Paralelamente, he integrado **IA generativa** para optimizar procesos, automatizar tareas repetitivas y potenciar la creatividad en el desarrollo de software.  
 
