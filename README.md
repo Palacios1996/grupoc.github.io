@@ -15,6 +15,17 @@ El objetivo de este portafolio es **demostrar las habilidades adquiridas** en el
 
 1. **Introducción**
    - Breve presentación del grupo y del propósito del portafolio.
+     
+Bienvenido/a a mi portafolio, un espacio donde convergen el **desarrollo ágil de software** y la **inteligencia artificial generativa** para crear soluciones innovadoras y eficientes.  
+
+A lo largo de mi formación y experiencia, he adoptado metodologías ágiles como **Scrum y Kanban**, priorizando la iteración rápida, la adaptabilidad y la entrega de valor continuo. Paralelamente, he integrado **IA generativa** para optimizar procesos, automatizar tareas repetitivas y potenciar la creatividad en el desarrollo de software.  
+
+En este portafolio, encontrarás proyectos que reflejan:  
+✅ **Desarrollo ágil** con enfoque en MVP (Producto Mínimo Viable) y mejora continua.  
+✅ **Implementación de IA generativa** (como GPT, DALL·E o modelos personalizados) en aplicaciones reales.  
+✅ **Soluciones técnicas** que combinan código limpio, arquitectura escalable e innovación.  
+
+Explora cómo estas tecnologías se unen para resolver problemas complejos y generar impacto. **¡Vamos a construir el futuro, un sprint a la vez!** 🚀  
 
 2. **Descripción del Problema**
    - Identificación del problema que se busca resolver con la aplicación o el portafolio.
