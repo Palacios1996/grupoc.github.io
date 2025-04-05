@@ -11,6 +11,8 @@
             --accent: #e74c3c;
             --light: #ecf0f1;
             --dark: #2c3e50;
+            --tab-bg: #f8f9fa;
+            --tab-active: #ffffff;
         }
         
         body {
@@ -21,6 +23,58 @@
             margin: 0 auto;
             padding: 20px;
             background-color: #f9f9f9;
+        }
+        
+        /* Estilo de las pestañas */
+        .tabs-container {
+            margin-bottom: 2rem;
+            background: var(--tab-bg);
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .tab:last-child {
+            border-right: none;
+        }
+        
+        .tab:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .tab.active {
+            background-color: var(--tab-active);
+            color: var(--primary);
+            border-top: 3px solid var(--accent);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background-color: var(--tab-active);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
         }
         
         header {
@@ -88,14 +142,6 @@
             color: var(--accent);
         }
         
-        .highlight {
-            background-color: #f8f9fa;
-            border-left: 4px solid var(--accent);
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 0 4px 4px 0;
-        }
-        
         .checklist {
             list-style-type: none;
             padding-left: 0;
@@ -113,14 +159,6 @@
             font-weight: bold;
             position: absolute;
             left: 0;
-        }
-        
-        section {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
         footer {
@@ -145,6 +183,15 @@
                 font-size: 2rem;
             }
             
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            
             .team-members {
                 grid-template-columns: 1fr;
             }
@@ -156,48 +203,56 @@
         <h1>Portafolio del Grupo C: Desarrollo Ágil y Uso de Inteligencia Artificial Generativa</h1>
     </header>
     
-    <section id="integrantes">
-        <h2>Integrantes del Grupo</h2>
-        <div class="team-members">
-            <div class="member">
-                <h3>Fernando</h3>
-                <p><a href="https://falzamora.github.io/feralzamora/" target="_blank">falzamora</a></p>
-            </div>
-            <div class="member">
-                <h3>Carlos</h3>
-                <p>(Enlace pendiente)</p>
-            </div>
-            <div class="member">
-                <h3>Joseph</h3>
-                <p><a href="https://josephcf24.github.io/josephcf24/" target="_blank">Josephcf24</a></p>
-            </div>
-            <div class="member">
-                <h3>Omar</h3>
-                <p>(Enlace pendiente)</p>
-            </div>
-            <div class="member">
-                <h3>Feliciano</h3>
-                <p><a href="https://palacios1996.github.io/" target="_blank">Palacios1996</a></p>
-            </div>
-            <div class="member">
-                <h3>Michel</h3>
-                <p>(Enlace pendiente)</p>
+    <!-- Sistema de pestañas -->
+    <div class="tabs-container">
+        <ul class="tabs">
+            <li class="tab active" onclick="openTab(event, 'integrantes')">Integrantes</li>
+            <li class="tab" onclick="openTab(event, 'objetivo')">Objetivo</li>
+            <li class="tab" onclick="openTab(event, 'introduccion')">Introducción</li>
+            <li class="tab" onclick="openTab(event, 'problema')">Descripción del Problema</li>
+            <li class="tab" onclick="openTab(event, 'metodologia')">Metodología Ágil</li>
+            <li class="tab" onclick="openTab(event, 'ia')">IA Generativa</li>
+            <li class="tab" onclick="openTab(event, 'contacto')">Contacto</li>
+        </ul>
+        
+        <!-- Contenido de las pestañas -->
+        <div id="integrantes" class="tab-content active">
+            <h2>Integrantes del Grupo</h2>
+            <div class="team-members">
+                <div class="member">
+                    <h3>Fernando</h3>
+                    <p><a href="https://falzamora.github.io/feralzamora/" target="_blank">falzamora</a></p>
+                </div>
+                <div class="member">
+                    <h3>Carlos</h3>
+                    <p>(Enlace pendiente)</p>
+                </div>
+                <div class="member">
+                    <h3>Joseph</h3>
+                    <p><a href="https://josephcf24.github.io/josephcf24/" target="_blank">Josephcf24</a></p>
+                </div>
+                <div class="member">
+                    <h3>Omar</h3>
+                    <p>(Enlace pendiente)</p>
+                </div>
+                <div class="member">
+                    <h3>Feliciano</h3>
+                    <p><a href="https://palacios1996.github.io/" target="_blank">Palacios1996</a></p>
+                </div>
+                <div class="member">
+                    <h3>Michel</h3>
+                    <p>(Enlace pendiente)</p>
+                </div>
             </div>
         </div>
-    </section>
-    
-    <section id="objetivo">
-        <h2>Objetivo del Portafolio</h2>
-        <p>El objetivo de este portafolio es <strong>demostrar las habilidades adquiridas</strong> en el desarrollo ágil de software y la integración de inteligencia artificial generativa en la creación de soluciones efectivas.</p>
-    </section>
-    
-    <section id="estructura">
-        <h2>Estructura del Portafolio</h2>
         
-        <div class="highlight">
-            <h3>1. Introducción</h3>
-            <p>Breve presentación del grupo y del propósito del portafolio.</p>
-            
+        <div id="objetivo" class="tab-content">
+            <h2>Objetivo del Portafolio</h2>
+            <p>El objetivo de este portafolio es <strong>demostrar las habilidades adquiridas</strong> en el desarrollo ágil de software y la integración de inteligencia artificial generativa en la creación de soluciones efectivas.</p>
+        </div>
+        
+        <div id="introduccion" class="tab-content">
+            <h2>Introducción</h2>
             <p>Bienvenido/a a nuestro portafolio, un espacio donde convergen el <strong>desarrollo ágil de software</strong> y la <strong>inteligencia artificial generativa</strong> para crear soluciones innovadoras y eficientes.</p>
             
             <p>A lo largo de nuestra formación y experiencia, hemos adoptado metodologías ágiles como <strong>Scrum y Kanban</strong>, priorizando la iteración rápida, la adaptabilidad y la entrega de valor continuo. Paralelamente, hemos integrado <strong>IA generativa</strong> para optimizar procesos, automatizar tareas repetitivas y potenciar la creatividad en el desarrollo de software.</p>
@@ -212,42 +267,56 @@
             <p>Explora cómo estas tecnologías se unen para resolver problemas complejos y generar impacto. <strong>¡Vamos a construir el futuro, un sprint a la vez!</strong> 🚀</p>
         </div>
         
-        <h3>2. Descripción del Problema</h3>
-        <p>Identificación del problema que se busca resolver con la aplicación o el portafolio.</p>
+        <div id="problema" class="tab-content">
+            <h2>Descripción del Problema</h2>
+            <p>Identificación del problema que se busca resolver con la aplicación o el portafolio.</p>
+            <!-- Aquí puedes agregar contenido específico sobre el problema -->
+        </div>
         
-        <h3>3. Metodología Ágil Utilizada</h3>
-        <p>Explicación de la metodología ágil seleccionada (Scrum, Kanban, etc.) y su justificación.</p>
+        <div id="metodologia" class="tab-content">
+            <h2>Metodología Ágil Utilizada</h2>
+            <p>Explicación de la metodología ágil seleccionada (Scrum, Kanban, etc.) y su justificación.</p>
+            <!-- Aquí puedes agregar contenido específico sobre la metodología -->
+        </div>
         
-        <h3>4. Uso de Inteligencia Artificial Generativa</h3>
-        <p>Detalles sobre cómo se integró la inteligencia artificial generativa en el desarrollo del portafolio.</p>
-        <p>Ejemplos de código generado y su impacto en la eficiencia del desarrollo.</p>
+        <div id="ia" class="tab-content">
+            <h2>Uso de Inteligencia Artificial Generativa</h2>
+            <p>Detalles sobre cómo se integró la inteligencia artificial generativa en el desarrollo del portafolio.</p>
+            <p>Ejemplos de código generado y su impacto en la eficiencia del desarrollo.</p>
+            <!-- Aquí puedes agregar ejemplos específicos de IA -->
+        </div>
         
-        <h3>5. Manejo de Excepciones</h3>
-        <p>Descripción del sistema de manejo de excepciones implementado para asegurar la robustez del portafolio.</p>
-        
-        <h3>6. Código Limpio y Buenas Prácticas</h3>
-        <p>Análisis de cómo se aplicaron los principios de código limpio y las buenas prácticas de estilo y refactorización.</p>
-        
-        <h3>7. Conclusiones</h3>
-        <p>Reflexiones sobre el proceso de desarrollo y los aprendizajes adquiridos.</p>
-        
-        <h3>8. Preguntas y Respuestas</h3>
-        <p>Espacio para que la audiencia realice preguntas sobre el portafolio y el proceso de desarrollo.</p>
-    </section>
-    
-    <section id="notas-finales">
-        <h2>Notas Finales</h2>
-        
-        <h3>Agradecimientos</h3>
-        <p>Agradecemos a nuestros profesores y compañeros por su apoyo y orientación durante el desarrollo de este portafolio.</p>
-        
-        <h3>Invitación a la Interacción</h3>
-        <p>Los invitamos a explorar nuestro portafolio y a compartir sus comentarios y preguntas.</p>
-    </section>
+        <div id="contacto" class="tab-content">
+            <h2>Contacto</h2>
+            <p>Agradecemos a nuestros profesores y compañeros por su apoyo y orientación durante el desarrollo de este portafolio.</p>
+            <p>Los invitamos a explorar nuestro portafolio y a compartir sus comentarios y preguntas.</p>
+            <!-- Aquí puedes agregar un formulario de contacto si lo deseas -->
+        </div>
+    </div>
     
     <footer>
         <p>© 2023 Grupo C - Desarrollo Ágil y IA Generativa</p>
         <p>Portafolio creado con ❤️ para demostrar nuestras habilidades técnicas</p>
     </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Oculta todos los contenidos de pestañas
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+            
+            // Desactiva todas las pestañas
+            var tabs = document.getElementsByClassName("tab");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            
+            // Muestra la pestaña actual y activa el botón
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 </html>
