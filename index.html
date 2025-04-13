@@ -3,336 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Grupo C - Desarrollo Ágil e IA Generativa</title>
+    <title>Portafolio Digital</title>
     <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --tab-bg: #f8f9fa;
-            --tab-active: #ffffff;
-        }
-        
+        /* Estilos básicos */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
         }
-        
-        /* Estilo de las pestañas */
-        .tabs-container {
-            margin-bottom: 2rem;
-            background: var(--tab-bg);
-            border-radius: 8px 8px 0 0;
-            overflow: hidden;
+        #search {
+            margin: 20px;
         }
-        
-        .tabs {
-            display: flex;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-        }
-        
-        .tab {
-            padding: 15px 25px;
-            cursor: pointer;
-            color: white;
-            font-weight: bold;
-            text-align: center;
-            transition: all 0.3s ease;
-            border-right: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .tab:last-child {
-            border-right: none;
-        }
-        
-        .tab:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .tab.active {
-            background-color: var(--tab-active);
-            color: var(--primary);
-            border-top: 3px solid var(--accent);
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 2rem;
-            background-color: var(--tab-active);
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1, h2, h3 {
-            color: var(--dark);
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 10px;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            color: var(--secondary);
-            border-left: 5px solid var(--accent);
-            padding-left: 15px;
-        }
-        
-        h3 {
-            font-size: 1.4rem;
-            margin-top: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .team-members {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .member {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .member a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .member a:hover {
-            text-decoration: underline;
-            color: var(--accent);
-        }
-        
-        .checklist {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        
-        .checklist li {
-            padding: 0.5rem 0;
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .checklist li:before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
-            background-color: var(--dark);
-            color: white;
-            border-radius: 10px;
-        }
-        
-        footer a {
-            color: var(--light);
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab {
-                border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            }
-            
-            .team-members {
-                grid-template-columns: 1fr;
-            }
+        #results {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Portafolio del Grupo C: Desarrollo Ágil y Uso de Inteligencia Artificial Generativa</h1>
-    </header>
-    
-    <!-- Sistema de pestañas -->
-    <div class="tabs-container">
-        <ul class="tabs">
-            <li class="tab active" onclick="openTab(event, 'integrantes')">Integrantes</li>
-            <li class="tab" onclick="openTab(event, 'objetivo')">Objetivo</li>
-            <li class="tab" onclick="openTab(event, 'introduccion')">Introducción</li>
-            <li class="tab" onclick="openTab(event, 'problema')">Descripción del Problema</li>
-            <li class="tab" onclick="openTab(event, 'metodologia')">Metodología Ágil</li>
-            <li class="tab" onclick="openTab(event, 'ia')">IA Generativa</li>
-            <li class="tab" onclick="openTab(event, 'contacto')">Contacto</li>
-        </ul>
-        
-        <!-- Contenido de las pestañas -->
-        <div id="integrantes" class="tab-content active">
-            <h2>Integrantes del Grupo</h2>
-            <div class="team-members">
-                <div class="member">
-                    <h3>Fernando</h3>
-                    <p><a href="https://falzamora.github.io/feralzamora/" target="_blank">falzamora</a></p>
-                </div>
-                <div class="member">
-                    <h3>Carlos</h3>
-                    <p><a href="https://helladrian0.github.io/CarlosAC/" target="_blank">Aquino</a></p>
-                </div>
-                <div class="member">
-                    <h3>Joseph</h3>
-                    <p><a href="https://josephcf24.github.io/Josephcf24/" target="_blank">Josephcf24</a></p>
-                </div>
-                <div class="member">
-                    <h3>Omar</h3>
-                    <p><a href="https://omar3d2602.github.io/" target="_blank">Omar3d2602</a></p>
-                </div>
-                <div class="member">
-                    <h3>Feliciano</h3>
-                    <p><a href="https://palacios1996.github.io/" target="_blank">Palacios</a></p>
-                </div>
-                <div class="member">
-                    <h3>Michel</h3>
-                    <p><a href="https://nikolaida.github.io/mi-portafolio/" target="_blank">Davalos</a></p>
-                </div>
-            </div>
-        </div>
-        
-        <div id="objetivo" class="tab-content">
-            <h2>Objetivo del Portafolio</h2>
-            <p>El objetivo de este portafolio es <strong>demostrar las habilidades adquiridas</strong> en el desarrollo ágil de software y la integración de inteligencia artificial generativa en la creación de soluciones efectivas.</p>
-        </div>
-        
-        <div id="introduccion" class="tab-content">
-            <h2>Introducción</h2>
-            <p>Bienvenido/a a nuestro portafolio, un espacio donde convergen el <strong>desarrollo ágil de software</strong> y la <strong>inteligencia artificial generativa</strong> para crear soluciones innovadoras y eficientes.</p>
-            
-            <p>A lo largo de nuestra formación y experiencia, hemos adoptado metodologías ágiles como <strong>Scrum y Kanban</strong>, priorizando la iteración rápida, la adaptabilidad y la entrega de valor continuo. Paralelamente, hemos integrado <strong>IA generativa</strong> para optimizar procesos, automatizar tareas repetitivas y potenciar la creatividad en el desarrollo de software.</p>
-            
-            <p>En este portafolio, encontrarás proyectos que reflejan:</p>
-            <ul class="checklist">
-                <li><strong>Desarrollo ágil</strong> con enfoque en MVP (Producto Mínimo Viable) y mejora continua.</li>
-                <li><strong>Implementación de IA generativa</strong> (como GPT, DALL·E o modelos personalizados) en aplicaciones reales.</li>
-                <li><strong>Soluciones técnicas</strong> que combinan código limpio, arquitectura escalable e innovación.</li>
-            </ul>
-            
-            <p>Explora cómo estas tecnologías se unen para resolver problemas complejos y generar impacto. <strong>¡Vamos a construir el futuro, un sprint a la vez!</strong> 🚀</p>
-        </div>
-        
-        <div id="problema" class="tab-content">
-            <h2>Descripción del Problema</h2>
-            <p>En la actualidad, la necesidad de contar con un portafolio digital se ha vuelto esencial para estudiantes y profesionales que desean mostrar sus habilidades y experiencias de manera efectiva. Un portafolio bien diseñado no solo permite a los individuos destacar sus logros, sino que también facilita la presentación de su trabajo a posibles empleadores o instituciones educativas. </p>
-            <p>Ante esta necesidad, nuestro equipo decidió desarrollar un portafolio digital que sirviera como una plataforma centralizada para exhibir los proyectos y trabajos de cada integrante. La solución propuesta consistió en crear un sitio web que albergará subpáginas individuales para cada miembro, donde se pudieran incluir descripciones de proyectos, habilidades, y ejemplos de trabajo. </p> 
-            <p>Este enfoque no solo permite una presentación clara y profesional, sino que también fomenta la colaboración y el aprendizaje entre los miembros del equipo al compartir recursos y conocimientos durante el proceso de desarrollo. </p>
-            <p>Con esta solución, buscamos no solo cumplir con los requisitos del proyecto, sino también proporcionar un recurso valioso que cada miembro podrá utilizar en su futuro profesional. </p>
-
-        </div>
-        
-        <div id="metodologia" class="tab-content">
-            <h2>Metodología Ágil Utilizada</h2>
-            <p>Para el desarrollo de nuestro portafolio digital, decidimos implementar la metodología ágil Kanban, que nos permitió gestionar de manera eficiente el flujo de trabajo y facilitar la colaboración entre los miembros del equipo. A continuación, se detalla cómo aplicamos Kanban en nuestro proyecto, incluyendo la planificación de tareas y la gestión del flujo de trabajo..</p>
-            
-        </div>
-        
-        <div id="ia" class="tab-content">
-            <h2>Uso de Inteligencia Artificial Generativa</h2>
-            <p>Detalles sobre cómo se integró la inteligencia artificial generativa en el desarrollo del portafolio.</p>
-            <p>Durante el desarrollo de nuestro portafolio, nos comprometimos a aplicar los principios de código limpio y a mantener un estilo de código consistente. Esto fue fundamental para asegurar la mantenibilidad y legibilidad del proyecto. 
- <p>A continuación, se detallan las prácticas que implementamos:</p>
-
-
-<p>Principios de Código Limpio</p>
-
-
-<p>Comentarios Claros: Aunque el código limpio debe ser autoexplicativo, también incluimos comentarios donde era necesario para aclarar secciones complejas o decisiones de diseño. Esto ayudará a otros desarrolladores (o a nosotros mismos) en el futuro a entender rápidamente la lógica detrás de ciertas implementaciones.</p>
-
-
-<p>Estilo de Código Consistente</p>
-
-
-<p>Refactorización Continua: A medida que desarrollamos nuevas características, también revisamos y refactorizamos el código existente para eliminar duplicaciones y mejorar la claridad.</p>
-           
-        </div>
-        
-        <div id="contacto" class="tab-content">
-            <h2>Contacto</h2>
-            <p>Agradecemos a nuestros profesores y compañeros por su apoyo y orientación durante el desarrollo de este portafolio.</p>
-            <p>Los invitamos a explorar nuestro portafolio y a compartir sus comentarios y preguntas.</p>
-            <!-- Aquí puedes agregar un formulario de contacto si lo deseas -->
-        </div>
-    </div>
-    
-    <footer>
-        <p>© 2023 Grupo C - Desarrollo Ágil y IA Generativa</p>
-        <p>Portafolio creado con ❤️ para demostrar nuestras habilidades técnicas</p>
-    </footer>
+    <h1>Portafolio Digital</h1>
+    <input type="text" id="search" placeholder="Buscar proyectos...">
+    <div id="results"></div>
 
     <script>
-        function openTab(evt, tabName) {
-            // Oculta todos los contenidos de pestañas
-            var tabContents = document.getElementsByClassName("tab-content");
-            for (var i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
-            }
-            
-            // Desactiva todas las pestañas
-            var tabs = document.getElementsByClassName("tab");
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("active");
-            }
-            
-            // Muestra la pestaña actual y activa el botón
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
+        const projects = [
+            "Proyecto 1: Desarrollo de una aplicación web",
+            "Proyecto 2: Creación de un juego interactivo",
+            "Proyecto 3: Diseño de una página de aterrizaje",
+            "Proyecto 4: Implementación de un sistema de gestión",
+        ];
+
+        document.getElementById('search').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const results = projects.filter(project => project.toLowerCase().includes(query));
+            document.getElementById('results').innerHTML = results.length ? results.join('<br>') : 'No se encontraron resultados.';
+        });
     </script>
 </body>
 </html>
