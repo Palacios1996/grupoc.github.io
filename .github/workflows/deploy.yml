@@ -16,14 +16,10 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Crear el directorio src si no existe
-      run: |
-        mkdir -p src/
-        echo "Directorio src creado."
+      run: mkdir -p src/
 
     - name: Verificar contenido del directorio src
-      run: |
-        ls -la src/
-        echo "Contenido verificado."
+      run: ls -la src/
 
     - name: Subir artefacto
       uses: actions/upload-artifact@v3
