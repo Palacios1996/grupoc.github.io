@@ -1,7 +1,7 @@
 name: Desplegar en GitHub Pages
 on:
   push:
-    branches: [main, develop]  # Se activa al hacer push
+    branches: [index, develop]  # Se activa al hacer push
 jobs:
   deploy:
     runs-on: ubuntu-latest
