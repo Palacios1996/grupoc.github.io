@@ -14,15 +14,22 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    
+
     - name: Crear el directorio src si no existe
-      run: mkdir -p src/
+      run: |
+        mkdir -p src/
+        echo "Directorio src creado."
+
+    - name: Verificar contenido del directorio src
+      run: |
+        ls -la src/
+        echo "Contenido verificado."
 
     - name: Subir artefacto
       uses: actions/upload-artifact@v3
       with:
         name: artefacto
-        path: src/ # Ruta ajustada para subir el contenido del directorio src/
+        path: src/
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v2
