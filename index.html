@@ -207,6 +207,35 @@
 <input type="text" id="search" placeholder="Buscar proyectos...">
 <div id="results"></div>
 
+
+    <!DOCTYPE html>
+<html>
+<body>
+    <input type="text" id="buscar" placeholder="Escribe para buscar">
+    <button onclick="buscar()">Buscar</button>
+
+    <div id="texto">
+        <p>Este es el texto donde se realizará la búsqueda.</p>
+        <p>Puedes buscar cualquier palabra en este contenido.</p>
+    </div>
+
+    <script>
+        function buscar() {
+            const termino = document.getElementById('buscar').value;
+            const texto = document.getElementById('texto').innerText;
+            
+            if (texto.includes(termino)) {
+                alert("Se encontró: " + termino);
+            } else {
+                alert("No se encontró: " + termino);
+            }
+        }
+    </script>
+</body>
+</html>
+
+    
+    
     <!-- Sistema de pestañas -->
     <div class="tabs-container">
         <ul class="tabs">
