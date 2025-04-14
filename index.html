@@ -25,16 +25,29 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f9f9f9;
+            background: linear-gradient(135deg, #a0d8f1, #a0e1d5); /* Fondo de gradiente más suave */
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background: linear-gradient(135deg, #a0d8f1, #a0e1d5);
+            }
+            50% {
+                background: linear-gradient(135deg, #a0e1d5, #a0d8f1);
+            }
+            100% {
+                background: linear-gradient(135deg, #a0d8f1, #a0e1d5);
+            }
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             padding: 2rem;
             border-radius: 10px;
             margin-bottom: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para las secciones */
         }
 
         h1 {
@@ -63,6 +76,8 @@
             background: var(--tab-bg);
             border-radius: 8px 8px 0 0;
             overflow: hidden;
+            background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .tabs {
@@ -105,6 +120,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transition: opacity 0.3s ease;
+            background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para los contenidos */
         }
 
         .tab-content.active {
@@ -125,6 +141,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para las cajas */
         }
 
         .member:hover {
@@ -141,25 +158,6 @@
         .member a:hover {
             text-decoration: underline;
             color: var(--accent);
-        }
-
-        .checklist {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .checklist li {
-            padding: 0.5rem 0;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .checklist li:before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
         }
 
         footer {
@@ -326,53 +324,58 @@
 
         <div id="contacto" class="tab-content">
             <h2>Contacto</h2>
-            <p>¿Tienes preguntas o comentarios? Escríbenos:</p>
-            <form action="76879392@continental.edu.pe" method="POST" enctype="text/plain">
+            <form action="submit_form.php" method="POST">
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" required>
 
-                <label for="email">Correo:</label>
+                <label for="email">Correo electrónico:</label>
                 <input type="email" id="email" name="email" required>
 
                 <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <textarea id="message" name="message" rows="4" required></textarea>
 
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Enviar mensaje">
             </form>
         </div>
     </div>
 
     <footer>
-        <p>© 2023 Grupo C - Desarrollo Ágil y IA Generativa</p>
-        <p>Portafolio creado con ❤️ para demostrar nuestras habilidades técnicas</p>
+        <p>Portafolio desarrollado por el <strong>Grupo C</strong></p>
+        <p>Contacto: <a href="mailto:grupo_c@example.com">grupo_c@example.com</a></p>
     </footer>
 
     <script>
-        function openTab(evt, tabName) {
-            var tabContents = document.getElementsByClassName("tab-content");
-            for (var i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
-            }
+        function openTab(event, tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
 
-            var tabs = document.getElementsByClassName("tab");
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("active");
-            }
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
 
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
         }
 
-        document.getElementById('search').addEventListener('keyup', function () {
-            var input = this.value.toLowerCase();
-            var members = document.querySelectorAll('.team-members .member');
+        // Función de búsqueda
+        const searchInput = document.getElementById('search');
+        const teamList = document.getElementById('teamList');
 
-            members.forEach(function (member) {
-                var name = member.textContent.toLowerCase();
-                member.style.display = name.includes(input) ? '' : 'none';
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            const members = teamList.getElementsByClassName('member');
+
+            Array.from(members).forEach(member => {
+                const name = member.querySelector('h3').textContent.toLowerCase();
+                if (name.includes(searchTerm)) {
+                    member.style.display = '';
+                } else {
+                    member.style.display = 'none';
+                }
             });
         });
     </script>
 </body>
+</html>
+
 </html>
 
