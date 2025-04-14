@@ -12,16 +12,17 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Crear el directorio src si no existe
+      run: mkdir -p src/
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
+    - name: Subir artefacto
+      uses: actions/upload-artifact@v3
+      with:
+        name: artefacto
+        path: src/ # Ruta ajustada para subir el contenido del directorio src/
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "src/"  # Ajusta esto según tu estructura real
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v2
