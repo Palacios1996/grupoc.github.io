@@ -1,12 +1,30 @@
-name: Desplegar en GitHub Pages
+name: Despliegue en GitHub Pages
+
 on:
   push:
-    branches: [index, develop]  # Se activa al hacer push
+    branches: [main, develop]  # Se activa al subir cambios a estas ramas
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Desplegar
-        run: echo "¡Sitio desplegado!"  # Reemplaza esto con tus pasos de despliegue
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependencias (si usas npm)
+        run: npm install  # Solo si tu proyecto usa npm
+
+      - name: Construir el proyecto (si es necesario)
+        run: npm run build  # Si tienes un script de build
+
+      - name: Desplegar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # Carpeta a desplegar (cambia si usas "dist" o "public")
+          publish_branch: gh-pages  # Rama donde se aloja el sitio
