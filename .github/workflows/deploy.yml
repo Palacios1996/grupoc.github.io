@@ -15,10 +15,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Crear el directorio src si no existe
-      run: mkdir -p src/
+    - name: Crear y verificar directorio src
+      run: |
+        mkdir -p src/
+        touch src/archivo-prueba.txt
+        echo "Directorio src creado."
 
-    - name: Verificar contenido del directorio src
+    - name: Listar contenido del directorio src
       run: ls -la src/
 
     - name: Subir artefacto
